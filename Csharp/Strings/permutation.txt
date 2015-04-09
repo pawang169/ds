@@ -9,9 +9,9 @@ void getPermutation(char[] arr , int startIndex, int len)
 	{
 		for(int i=startIndex;i<len;i++)
 		{
-			swap(arr[i],arr[startIndex]);
+			swap(ref arr[i],ref arr[startIndex]);
 			getPermutation(arr,startIndex+1,len);
-			swap(arr[i],arr[startIndex]);
+			swap(ref arr[i],ref arr[startIndex]);
 		}
 }
 
