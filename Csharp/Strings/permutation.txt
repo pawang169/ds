@@ -23,34 +23,9 @@ void swap(ref char first , ref char second)
 	second = temp;
 }
 
+Call : getPermutation("abc",0);
 
 Recurssion Tree // copy paste for a good view 
-void getPermutation(char[] arr , int startIndex, int len)
-{
-	if(startIndex==len)
-	{
-		console.writeline(new string(arr));
-		return;
-	}
-	else
-	{
-		for(int i=startIndex;i<len;i++)
-		{
-			swap(arr[i],arr[startIndex]);
-			getPermutation(arr,startIndex+1,len);
-			swap(arr[i],arr[startIndex]);
-		}
-	}
-}
-
-void swap(ref char first , ref char second)
-{
-	char temp = first;
-	first = second;
-	second = temp;
-}
-
-getPermutation("abc",0);
 
 startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
 0			0	3	a		a 				abc	abc
