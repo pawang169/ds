@@ -22,3 +22,184 @@ void swap(ref char first , ref char second)
 	first = second;
 	second = temp;
 }
+
+
+Recurssion Tree // copy paste for a good view 
+void getPermutation(char[] arr , int startIndex, int len)
+{
+	if(startIndex==len)
+	{
+		console.writeline(new string(arr));
+		return;
+	}
+	else
+	{
+		for(int i=startIndex;i<len;i++)
+		{
+			swap(arr[i],arr[startIndex]);
+			getPermutation(arr,startIndex+1,len);
+			swap(arr[i],arr[startIndex]);
+		}
+	}
+}
+
+void swap(ref char first , ref char second)
+{
+	char temp = first;
+	first = second;
+	second = temp;
+}
+
+getPermutation("abc",0);
+
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b				abc	abc		
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	c 		c				abc	abc
+																																				startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																																				3			PRINT ARRAY "ABC"
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b				abc	abc		
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	c 		c				abc	abc		abc
+																								2			3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																				
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b				abc	abc		abc
+												1			2	3	c 		b				abc	acb
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	c		c				acb	acb
+																																				startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																																				3			PRINT ARRAY "ACB"
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																								
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b				abc	abc		abc
+												1			2	3	c 		b				abc	acb
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	c		c				acb	acb		acb
+																								2			3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b				abc	abc		abc
+												1			2	3	c 		b				abc	acb		abc
+												1			3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	a 		a				bac bac
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	c 		c 				bac bac		
+																																				startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																																				3			PRINT ARRAY "BAC"
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	a 		a				bac bac
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	c 		c 				bac bac		bac
+																								2			3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																								
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	a 		a				bac bac		bac
+												1			2	3	c 		a 				bac	bca		
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	a 		a 				bca	bca
+																																				startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																																				3			PRINT ARRAY "BCA"							
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																																																
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	a 		a				bac bac		bac
+												1			2	3	c 		a 				bac	bca		
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	a 		a 				bca	bca		bca
+																								2			3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX																								
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																								
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	a 		a				bac bac		bac
+												1			2	3	c 		a 				bac	bca		bac
+												1			3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																								
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac		abc
+0			2	3	c		a				abc	cba
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b 				cba	cba
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	a		a				cba	cba
+																																				startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																																				3			PRINT ARRAY "CBA"	
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																								
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac		abc
+0			2	3	c		a				abc	cba
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b 				cba	cba
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	a		a				cba	cba		cba
+																											3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																								
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac		abc
+0			2	3	c		a				abc	cba
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b 				cba	cba		cba
+												1			2	3	a		b 				cba	cab
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	b 		b				cab	cab
+																																				startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																																				3			PRINT ARRAY "CAB"	
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																								
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac		abc
+0			2	3	c		a				abc	cba
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b 				cba	cba		cba
+												1			2	3	a		b 				cba	cab
+																								startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+																								2			2	3	b 		b				cab	cab		cab
+																								2			3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																								
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac		abc
+0			2	3	c		a				abc	cba
+												startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+												1			1	3	b 		b 				cba	cba		cba
+												1			2	3	a		b 				cba	cab		cba
+															3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+"=================="=================="=================="=================="=================="=================="=================="=================="=================="=================="==================																																																																								
+startIndex	i	len	arr[i]	arr[startIndex] arr	swap1	swap2
+0			0	3	a		a 				abc	abc		abc
+0			1	3	b		a 				abc	bac		abc
+0			2	3	c		a				abc	cba		abc
+0			3	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+																								
