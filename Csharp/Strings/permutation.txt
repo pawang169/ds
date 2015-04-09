@@ -1,0 +1,23 @@
+void getPermutation(char[] arr , int startIndex, int len)
+{
+	if(startIndex==len)
+	{
+		console.writeline(new string(arr));
+		return;
+	}
+	else
+	{
+		for(int i=startIndex;i<len;i++)
+		{
+			swap(arr[i],arr[startIndex]);
+			getPermutation(arr,startIndex+1,len);
+			swap(arr[i],arr[startIndex]);
+		}
+}
+
+void swap(ref char first , ref char second)
+{
+	char temp = first;
+	first = second;
+	second = temp;
+}
