@@ -13,6 +13,7 @@ void getPermutation(char[] arr , int startIndex, int len)
 			getPermutation(arr,startIndex+1,len);
 			swap(ref arr[i],ref arr[startIndex]);
 		}
+	}
 }
 
 void swap(ref char first , ref char second)
