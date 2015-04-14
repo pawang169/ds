@@ -1,0 +1,30 @@
+string replaceAllWordWith20(char[] arr)
+        {
+            int len = arr.Length-1;
+            int i =len;
+            //Move from back till u reach to first char.  
+            //This way you will skip the extra space
+
+            while(arr[i]==32)
+            {
+                i--;
+            }
+
+            while (i>=0 && len >= 0)
+            {
+                if (arr[i] == 32)
+                {
+                    arr[len--] = '0';
+                    arr[len--] = '2';
+                    arr[len--] = '%';
+                }
+                else
+                {
+                    arr[len--] = arr[i];
+                }
+                i--;
+            }
+
+            return new string(arr);
+
+        }

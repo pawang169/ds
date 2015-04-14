@@ -1,0 +1,62 @@
+        string reverseString(char[] arr)
+        {
+            if (arr.Length > 1)
+            { 
+                int i =0;
+                int len = arr.Length - 1;
+                while (i <= len/2)
+                {
+                    char t = arr[i];
+                    arr[i] = arr[len - i];
+                    arr[len - i] = t;
+                    i++;
+                }
+                
+            }
+            return new string(arr);
+        }
+
+        //assuming index'es will be of array index
+        string reverseString(char[] arr, int start, int end)
+        {
+
+
+            if (arr.Length > 1)
+            {
+                int i = start;
+                int len = end;
+                int count = 0;
+                while (count <= (end-start) / 2)
+                {
+                    char t = arr[i];
+                    arr[i] = arr[len - count];
+                    arr[len - count] = t;
+                    i++; count++;
+                }
+
+            }
+            return new string(arr);
+        }
+
+
+        string reverseAllWords(char[] arr)
+        {
+            reverseString(arr,0,arr.Length-1);
+            int i = 0;
+            int sp = 0;
+            while (i < arr.Length)
+            { 
+                if(arr[i]==32 && i>0)
+                {
+                   
+                    reverseString(arr,sp,i-1);
+                    sp = i+1;
+                }
+                i++;
+            }
+            if (sp < arr.Length)
+            {
+                reverseString(arr, sp, arr.Length - 1);
+            }
+            return new string(arr);
+        }

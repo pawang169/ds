@@ -1,0 +1,76 @@
+ string stringCompression(char[] arr)
+        {
+            int len = arr.Length-1;
+            int index=0;
+            int i=0;
+            int counter = 1 ;
+            //good catch
+            if (arr.Length>1)
+            {
+                while (i < len)
+                {
+                    if (arr[i] != arr[i + 1])
+                    {
+                        if (counter > 1)
+                        {
+                            arr[index++] = arr[i];
+                            // wow wonderful catch 123 or 10  
+
+                            if (counter < 10)
+                            {
+                                arr[index++] = (char)(counter + '0');
+                            }
+                            else if (counter < 100)
+                            {
+                                arr[index++] = (char)(counter/10 + '0');
+                                arr[index++] = (char)(counter %10  + '0');
+                            }
+                                                       
+                            counter = 1;
+                        }
+                        else
+                        {
+                            arr[index++] = arr[i];
+                        }
+                    }
+                    else
+                    {
+                        counter++;                        
+                    }
+                    i++;
+                }
+                //remaining string
+                if (counter > 1)
+                {
+                   
+
+
+                    if (counter < 10)
+                    {
+                        arr[index++] = arr[i];
+                        arr[index++] = (char)(counter + '0');
+                    }
+                    else if (counter < 100)
+                    {
+
+                        arr[index++] = arr[i];
+                       
+
+                        arr[index++] = (char)(counter / 10 + '0');
+                        arr[index++] = (char)(counter % 10 + '0');
+                    }
+                                                  
+
+                }
+                else
+                {
+                    arr[index++] = arr[i];
+
+                }
+                //good catch
+                //if index < len then only we need to put NULL
+                if(index<len)
+                    arr[index] = (char)0;
+            }
+            return new string(arr);
+        }
