@@ -1,0 +1,47 @@
+printCombi(int n,int index,int open , int close)
+{
+	if(close==n)
+	{
+		print array
+		return;
+	}
+	else
+	{
+		if(open>close)
+		{
+			arr[index]="}";
+			printCombi(n,index+1,open,close+1);
+		}
+		if(open<n)
+		{
+			arr[index]="{";
+			printCombi(n,index+1,open+1,close);
+		}
+	}
+}
+
+printCombi(2,0,0,0)
+
+index	open	close	array
+0		0		0		{
+						index	open	close	array
+						1		1		0		{}
+												index	open	close	array
+												2		1		1		{}{
+																		index	open	close	array
+																		3		2		1		{}{}
+																								index	open	close	array
+																								4		2		2		PRINT {}{}
+																								return
+																		return
+												return
+						1		1		0		{{{} 
+												2		2		0		{{}}
+																		3		2		1		{{}}
+																								4		2		2		PRINT {{}}
+																								return
+																		return
+												return
+						return
+return
+																								
